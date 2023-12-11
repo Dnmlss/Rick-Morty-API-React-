@@ -1,5 +1,5 @@
 import { useCounter, useFetch } from '../hooks';
-import { Characters } from './';
+import { Characters, LoadingCharacter } from './';
 
 export const RickAndMorty = () => {
 	const { url } = useCounter();
@@ -13,16 +13,22 @@ export const RickAndMorty = () => {
 			<h1>Rick & Morty App</h1>
 			<hr />
 
-			<Characters
-				image={image}
-				name={name}
-				species={species}
-				status={status}
-				location={location}
-				origin={origin}
-				episode={episode}
-				hasError={hasError}
-			/>
+			{/* condicional ternaria */}
+
+			{isLoading ? (
+				<LoadingCharacter />
+			) : (
+				<Characters
+					image={image}
+					name={name}
+					species={species}
+					status={status}
+					location={location}
+					origin={origin}
+					episode={episode}
+					hasError={hasError}
+				/>
+			)}
 		</>
 	);
 };
