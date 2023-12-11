@@ -8,5 +8,19 @@ export const useCounter = (initialValue = 1) => {
 		setCounter(counter + value);
 	};
 
-	return {};
+	const decrement = (value = 1) => {
+		setCounter(counter - value);
+	};
+
+	const reset = () => {
+		setCounter(initialValue);
+	};
+
+	return {
+		setCounter,
+		increment,
+		decrement,
+		reset,
+		url,
+	};
 };

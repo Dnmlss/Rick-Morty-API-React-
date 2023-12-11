@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
 export const useFetch = (url) => {
-	const [state, setstate] = useState({
+	const [state, setState] = useState({
 		data: null,
 		isLoading: true,
 		hasError: null,
 	});
 
 	const getFetch = async () => {
-		setstate({
+		setState({
 			...state,
 			isLoading: true,
 		});
@@ -19,14 +19,14 @@ export const useFetch = (url) => {
 			console.log(data);
 
 			if (data.error) {
-				setstate({
+				setState({
 					data: null,
 					isLoading: false,
 					hasError: data.error,
 				});
 			} else {
 				// Al tener los datos, enviamos todas las propiedades al state
-				setstate({
+				setState({
 					data,
 					isLoading: false,
 					hasError: null,
@@ -35,7 +35,7 @@ export const useFetch = (url) => {
 		} catch (error) {
 			console.log('Error obtenido: ' + error);
 
-			setstate({
+			setState({
 				data: null,
 				isLoading: false,
 				hasError: error,
