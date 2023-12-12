@@ -1,5 +1,5 @@
 import { useCounter, useFetch } from '../hooks';
-import { Characters, LoadingCharacter } from './';
+import { Characters, LoadingCharacter, SearchCharacter } from './';
 
 export const RickAndMorty = () => {
 	const { url, setCounter, increment, decrement, reset } = useCounter();
@@ -57,7 +57,9 @@ export const RickAndMorty = () => {
 				</button>
 			</div>
 
+			<SearchCharacter setCounter={setCounter} />
 			<hr />
+
 			<footer className='card-footer text-muted text-end small footer'>By: Dnmlss</footer>
 		</>
 	);
