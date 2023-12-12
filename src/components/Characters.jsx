@@ -37,10 +37,10 @@ export const Characters = ({
 				<h5 className='card-text'>Status: {status}</h5>
 				<h5 className='card-text'>Location: {location?.name}</h5>
 				<h6 className='card-text'>Origin: {origin?.name}</h6>
-				<footer className='card-footer text-muted text-end small footer'>
-					Episodes: {episode?.lenght}
-				</footer>
 			</div>
+			<footer className='card-footer text-muted text-end small footer'>
+				Episodes: {episode?.length}
+			</footer>
 		</div>
 	);
 };

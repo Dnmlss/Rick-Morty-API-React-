@@ -2,11 +2,9 @@ import { useCounter, useFetch } from '../hooks';
 import { Characters, LoadingCharacter } from './';
 
 export const RickAndMorty = () => {
-	const { url } = useCounter();
-
+	const { url, setCounter, increment, decrement, reset } = useCounter();
 	const { data, isLoading, hasError } = useFetch(url);
-
-	const { image, name, species, status, location, origin, episode } = !!data & data;
+	const { image, name, species, status, location, origin, episode } = !!data && data;
 
 	return (
 		<>
@@ -14,7 +12,6 @@ export const RickAndMorty = () => {
 			<hr />
 
 			{/* condicional ternaria */}
-
 			{isLoading ? (
 				<LoadingCharacter />
 			) : (
@@ -29,6 +26,39 @@ export const RickAndMorty = () => {
 					hasError={hasError}
 				/>
 			)}
+
+			<div
+				className='d-flex justify-content-center align-items-center mt-2'
+				role='group'
+				disabled={isLoading}
+			>
+				<button
+					onClick={() => decrement()}
+					className='btn btn-primary'
+					disabled={isLoading}
+				>
+					Back
+				</button>
+
+				<button
+					onClick={() => reset()}
+					className='btn btn-primary'
+					disabled={isLoading}
+				>
+					Reset
+				</button>
+
+				<button
+					onClick={() => increment()}
+					className='btn btn-primary'
+					disabled={isLoading}
+				>
+					Next
+				</button>
+			</div>
+
+			<hr />
+			<footer className='card-footer text-muted text-end small footer'>By: Dnmlss</footer>
 		</>
 	);
 };

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
+// pedimos el url
 export const useFetch = (url) => {
+	//Creamos la lógica como un hook
 	const [state, setState] = useState({
 		data: null,
 		isLoading: true,
@@ -8,6 +10,7 @@ export const useFetch = (url) => {
 	});
 
 	const getFetch = async () => {
+		//
 		setState({
 			...state,
 			isLoading: true,
@@ -16,7 +19,7 @@ export const useFetch = (url) => {
 		try {
 			const resp = await fetch(url);
 			const data = await resp.json();
-			console.log(data.episode.length);
+			//console.log(data.episode.length);
 
 			if (data.error) {
 				setState({
@@ -25,7 +28,7 @@ export const useFetch = (url) => {
 					hasError: data.error,
 				});
 			} else {
-				// Al tener los datos, enviamos todas las propiedades al state
+				// Al tener los datos, enviamos todas las propiedades al setState
 				setState({
 					data,
 					isLoading: false,
@@ -33,8 +36,7 @@ export const useFetch = (url) => {
 				});
 			}
 		} catch (error) {
-			console.log('Error obtenido: ' + error);
-
+			console.log('El error es:' + error);
 			setState({
 				data: null,
 				isLoading: false,
@@ -43,6 +45,7 @@ export const useFetch = (url) => {
 		}
 	};
 
+	// disparamos useEffect
 	useEffect(() => {
 		getFetch();
 	}, [url]);
