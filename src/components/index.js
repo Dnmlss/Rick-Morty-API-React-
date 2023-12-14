@@ -1,4 +1,4 @@
 export * from './LoadingCharacter';
 export * from './SearchCharacter';
-export * from './RickAndMorty';
+export * from './RickAndMortyApp';
 export * from './Characters';

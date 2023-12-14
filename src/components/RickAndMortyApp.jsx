@@ -1,5 +1,5 @@
 import { useCounter, useFetch } from '../hooks';
-import { Characters, LoadingCharacter, SearchCharacter } from './';
+import { Characters, LoadingCharacter, SearchCharacter } from '.';
 
 export const RickAndMorty = () => {
 	const { url, setCounter, increment, decrement, reset } = useCounter();
